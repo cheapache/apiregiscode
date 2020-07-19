@@ -59,6 +59,7 @@ class Authen{
                                     message: 'Logged in!',
                                     data: [{
                                         userid: rows[0].id,
+                                        username: rows[0].username,
                                         token: token
                                     }]
                                 });

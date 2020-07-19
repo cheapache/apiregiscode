@@ -18,17 +18,20 @@
     </head>
     <body>
     <p id='attruserid' style='display: none;'><%=userid%></p>
+    <p id='attrtoken' style='display: none;'><%=tk%></p>
         <div id='content'>
             <div class='container'>
                 <div class='row'>
-                    <div class='col-md-1 mt-3'>
-
+                    <div class='col-md-12 mt-3 content-right'>
+                        <div><i class='fas fa-user mr-2'></i><%=username%></div>
+                        <span id='lblogout' style='cursor: pointer;'>logout</span>
                     </div>
-                    <div class='col-md-10 mt-3' style='border-bottom: 2px solid #444;'>
+                    <div class='col-md-1 mt-2'>
+                    </div>
+                    <div class='col-md-10 mt-2' style='border-bottom: 2px solid #444;'>
                         <div class='lbtitle content-center'>Register Code</div>
                     </div>
-                    <div class='col-md-1 mt-3'>
-
+                    <div class='col-md-1 mt-2'>
                     </div>
                     <div class='col-md-12 mt-3'>
                         <input id='txtcode' type='text' class="form-control" maxlength="13" placeholder="Enter your code." style='text-align: center;'/>

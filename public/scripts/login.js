@@ -25,25 +25,7 @@ $(document).ready(function(){
                         type: 'success',
                     }, (result) =>{
                         if (result){
-                            window.location.href = '../register?id=' + res.data[0].userid + '&token=' + res.data[0].token;
-                            
-                            /*var param = {
-                                id: res.data[0].userid,
-                                token: res.data[0].token
-                            }
-                            
-                            $.ajax({
-                                url: '../register/',
-                                data: JSON.stringify(param),
-                                dataType: "json",
-                                contentType: 'application/json; charset=utf-8',
-                                type: 'GET',
-                                async: false,
-                                success: function(){
-                                    window.location = url;
-                                }
-                            });*/
-
+                            window.location.replace('../register?i=' + res.data[0].userid + '&u=' + res.data[0].username + '&t=' + res.data[0].token);
                         }
                     });
                 }

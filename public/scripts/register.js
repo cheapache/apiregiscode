@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
+    var userid = document.getElementById('attruserid').innerHTML;
+    var token = document.getElementById('attrtoken').innerHTML;
 
     $("#btnsubmit").on('click', function(){
         $("#btnsubmit").jqxValidator('validate');
@@ -15,14 +15,10 @@ $(document).ready(function(){
 
     $("#btnsubmit").on('validationSuccess', function(){
 
-        console.log('test');
-
         var param = {
             'serialcode': $("#txtcode").val(),
-            'userid': document.getElementById('attruserid').innerHTML
+            'userid': userid
         }
-
-        //console.log(token);
 
         $.ajax({
             url: url_regis + 'regiscode',
@@ -53,10 +49,45 @@ $(document).ready(function(){
                         });
                     }
 
-                //}
-                //else{
-                    //console.log(res);
-                //}
+            }
+        });
+
+    });
+
+    $("#lblogout").on('click', function(){
+        
+        var param = {
+            'userid': userid
+        }
+
+        $.ajax({
+            url: url_authen + 'logout',
+            data: JSON.stringify(param),
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            type: 'POST',
+            async: false,
+            success: function(res){
+                //if (res.length == 0){
+                    if (res.status == 'logout successfully'){
+                        swal({
+                            title: 'Logout',
+                            text: res.message,
+                            type: 'success',
+                        }, (result) => {
+                            if (result){
+                                window.location.replace('../');
+                            }
+                        });
+
+                    }
+                    else{
+                        swal({
+                            title: res.status,
+                            text: res.message,
+                            type: 'error',
+                        });
+                    }   
             }
         });
 

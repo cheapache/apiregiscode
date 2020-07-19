@@ -42,7 +42,7 @@ Router.post('/logout', (req, res) => {
     authen._savelog({ userid: req.body.userid, action: 'logout' }, (result) => {
         if (result){
             res.header('authen-token', null);
-            res.status(400).json({ status: 'logout successfully', message: 'See you.'});
+            res.json({ status: 'logout successfully', message: 'See you.'});
         }
     });
 

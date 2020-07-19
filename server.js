@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 const authenRoute = require('./routers/authen');
 const regisRoute = require('./routers/register');
 const reportRoute = require('./routers/report');
+const verify = require('./routers/verifytoken');
 
 app.use('/api/authen', authenRoute);
 app.use('/api/register', regisRoute);
@@ -31,8 +32,10 @@ app.get('/signup', (req, res) => {
 });*/
 
 app.get('/register/', (req, res) => {
-    //res.sendFile(path.join(__dirname, '/public/views/regiscode.html'), { userid: req.params.id });
-    res.render('regiscode', { userid: req.query.id, tk: req.query.token });
+    //res.sendFile(path.join(__dirname, '/public/views/regiscode.html'));
+    res.render('regiscode', { userid: req.query.i, username: req.query.u, tk: req.query.t });
+    //console.log(req.params);
+
 });
 
 app.get('/history', (req, res) => {
@@ -42,7 +45,5 @@ app.get('/history', (req, res) => {
 app.get('/code', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/views/code.html'));
 });
-
-
 
 app.listen(3000, () => { console.log('Server Up and Running')});
