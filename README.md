@@ -40,7 +40,7 @@ import file in /dump_mysql_file to mysql database ide
 ##Launch
 
 #bash
-1. cd /apiregiscode-mater
+1. cd /apiregiscode-master
 2. node server.js
 3. localhost:3000/ to login
 4. localhost:3000/history to view log history
