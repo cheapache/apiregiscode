@@ -34,7 +34,8 @@ npm i time --save
 
 ##Database
 
-import file in /dump_mysql_file to mysql database ide
+1.import file in /dump_mysql_file to mysql database ide
+2.change configure in /config/db.js
 
 
 ##Launch
